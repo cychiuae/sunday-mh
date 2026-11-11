@@ -1,0 +1,27 @@
+{
+  "name": "pufflings",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "npm run dev:server & npm run dev:client & wait",
+    "dev:server": "npm run dev -w server",
+    "dev:client": "npm run dev -w client",
+    "build": "npm run build -w client",
+    "start": "npm run start -w server",
+    "test": "vitest run",
+    "typecheck": "tsc -p shared && tsc -p server && tsc -p client",
+    "playtest": "npm run playtest -w server",
+    "playtest:browser": "node tools/playtest-browser.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.65.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}

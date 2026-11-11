@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pufflings — cozy co-op monster hunting</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+
+    <div id="hud" class="hidden">
+      <div id="left">
+        <div id="me" class="card">
+          <div id="me-name"></div>
+          <div class="bar hp"><div id="me-hp"></div></div>
+          <div class="bar stamina"><div id="me-stamina"></div></div>
+          <div id="me-berries"></div>
+        </div>
+        <div id="party"></div>
+      </div>
+
+      <div id="top">
+        <div id="monster-box" class="card hidden">
+          <div id="monster-name">Grumblepuff</div>
+          <div class="bar sleepy"><div id="monster-sleepy"></div></div>
+          <div id="monster-mood">Sleepiness</div>
+        </div>
+        <div id="hunt-info" class="card hidden"></div>
+      </div>
+
+      <div id="camp-box" class="card hidden">
+        <div class="camp-title">Camp</div>
+        <div class="camp-row">Invite code <b id="room-code"></b></div>
+        <button id="copy-link"><span id="copy-label">Copy invite link</span> <kbd>C</kbd></button>
+        <div id="copy-fallback" class="hidden">
+          <input id="invite-link" readonly aria-label="Invite link" />
+          <div id="copy-note"></div>
+        </div>
+        <button id="start-hunt" class="big">Start Hunt <kbd>Enter</kbd></button>
+        <div id="camp-lock-hint">
+          Your mouse is looking around, so it can't click here. Use the keys, or press <kbd>Esc</kbd> to free the mouse.
+        </div>
+      </div>
+
+      <div id="banner"></div>
+      <div id="result" class="card hidden"></div>
+      <div id="vignette"></div>
+      <div id="bottom">
+        <div id="lock-hint">Click to look around</div>
+        <div id="hints">
+          <span><kbd>WASD</kbd> move</span>
+          <span><kbd>Mouse</kbd> look</span>
+          <span><kbd>LMB</kbd>/<kbd>J</kbd> swing</span>
+          <span><kbd>RMB</kbd>/<kbd>K</kbd> big smash</span>
+          <span><kbd>Space</kbd> roll</span>
+          <span><kbd>E</kbd> eat berry</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="net-note" class="hidden">Connection hiccup. Trying to get back to the hunt…</div>
+
+    <div id="menu">
+      <div id="menu-main" class="menu-card">
+        <h1>Pufflings</h1>
+        <p class="tagline">Cozy co-op monster hunting. Nobody gets hurt — they just get very sleepy.</p>
+        <label>Hunter name <input id="name" maxlength="12" placeholder="Mochi" autocomplete="off" /></label>
+        <div class="label">Hood colour</div>
+        <div id="colors"></div>
+        <button id="quick" class="big">Quick Hunt</button>
+        <button id="host">Host a private hunt</button>
+        <div class="join-row">
+          <input id="code" placeholder="Invite code" autocomplete="off" />
+          <button id="join">Join</button>
+        </div>
+        <div id="menu-error" role="status"></div>
+      </div>
+
+      <div id="menu-gone" class="menu-card hidden">
+        <h2>Lost the trail</h2>
+        <p>Your connection to the hunt dropped. Nobody got hurt.</p>
+        <button id="gone-back" class="big">Back to the menu</button>
+        <p id="gone-note" class="small"></p>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

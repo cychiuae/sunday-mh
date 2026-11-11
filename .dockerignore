@@ -1,0 +1,8 @@
+**/node_modules
+**/dist
+.git
+.claude
+playtest-shots
+.cache
+*.log
+.DS_Store

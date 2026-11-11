@@ -1,0 +1,11 @@
+name: sunday-mh
+# One process serves the built client, /health, and the Colyseus WebSocket.
+# Must match the port the Dockerfile's server listens on (ENV PORT).
+port: 2567
+resources:
+  postgresql:
+    enable: false
+  s3:
+    enable: false
+  redis:
+    enable: false
